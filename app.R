@@ -174,7 +174,7 @@ server <- function(input, output) {
                  label = lapply(labels, htmltools::HTML),
                  popup = lapply(popups, htmltools::HTML)) %>% 
       addPolygons(
-        label=~stringr::str_c('Popularity Score',
+        label=~stringr::str_c('Popularity Score ',
                               name, ': ',
                               formatC(states@data[["Pokemon"]], big.mark = ',', format='d')),
         labelOptions= labelOptions(direction = 'auto'),
