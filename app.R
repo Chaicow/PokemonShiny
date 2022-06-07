@@ -100,7 +100,7 @@ pokemon_data$interest_over_time.date <-format(as.Date(pokemon_data$interest_over
 # Define UI ----
 ui <- navbarPage(theme = shinythemes::shinytheme("united"), 
                  "Shiny Pokémon",
-                 tabPanel("Pokémon Shiny App",
+                 tabPanel("Homepage",
            div(img(src = "pokelogo.png", width = "50%", height = "15%"),
                style = "text-align: center;"), #This idea came from the 20 questions Pokémon shiny app: https://github.com/ashbaldry/Pokemon_20Q/blob/master/ui.R
            div(img(src = "profoak.png", width = "50%", height = "15%"),
