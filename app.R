@@ -204,7 +204,7 @@ server <- function(input, output) {
       filter(interest_over_time.date == input$date) %>% 
       ggplot() +
       geom_col(mapping = aes_string(x = 'interest_over_time.geo', y = 'interest_over_time.hits', fill = 'interest_over_time.geo')) +
-      labs(x = "Pokémon Popularity Score", y ="Countries", subtitle = "by Day") +
+      labs(y = "Pokémon Popularity Score", x ="Countries", subtitle = "by Day") +
       ggtitle(str_c(c("Pokémon Popularity Comparison between ", input$Country1, " and ", input$Country2), collapse = "")) +
       theme_classic() +
       theme(legend.position = 'none', text=element_text(size=15, family="Trebuchet MS")) +
