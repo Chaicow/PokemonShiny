@@ -101,48 +101,48 @@ pokemon_data$interest_over_time.date <-format(as.Date(pokemon_data$interest_over
 ui <- navbarPage(theme = shinythemes::shinytheme("united"), 
                  "Shiny Pokémon",
                  tabPanel("Homepage",
-           div(img(src = "pokelogo.png", width = "50%", height = "15%"),
-               style = "text-align: center;"), #This idea came from the 20 questions Pokémon shiny app: https://github.com/ashbaldry/Pokemon_20Q/blob/master/ui.R
-           div(img(src = "profoak.png", width = "50%", height = "15%"),
-               style = "text-align: center;"),
-           div(
-             h2("Hello There!"),
-               p("This app was created as a part of the final project of Cal Poly's Stat 431: Advanced Statistical Computing with R course taught by Dr. Kelly Bodwin. This app allows you to explore data related to Pokémon. This app will allow you to explore the popularity of Pokémon in all 50 US states and all high income English speaking countries. Additionally this app allows you to explore how good different Pokémon base stats are at predicing the evolutionary stage of all 898 Pokémon plus their regional variants! With this app, you can Explore Em' All!"), style = "text-align: center;"),
-           div(
-             p("The data in this app come from two sources: A Google spreadsheet that was created as a part of an online Pokémon data analysis challenge and Google trends.",
-             p("Click ", 
-               a(href = 'https://docs.google.com/spreadsheets/d/1kb5IkxQlJoWKGPVxmHb_D7POaAKFXUl8/edit#gid=1425790249', 'Here'), "for the link to the google spreadsheet.")),
-             p("The names of the tabs were inspired by SEMIONKORCHEVSKIY's name for their kaggle dataset. You can find it ", a(href = 'https://www.kaggle.com/datasets/semioniy/predictemall', 'Here'),".")), style = "text-align: center;"),
+                          div(img(src = "pokelogo.png", width = "50%", height = "15%"),
+                              style = "text-align: center;"), #This idea came from the 20 questions Pokémon shiny app: https://github.com/ashbaldry/Pokemon_20Q/blob/master/ui.R
+                          div(img(src = "profoak.png", width = "50%", height = "15%"),
+                              style = "text-align: center;"),
+                          div(
+                            h2("Hello There!"),
+                            p("This app was created as a part of the final project of Cal Poly's Stat 431: Advanced Statistical Computing with R course taught by Dr. Kelly Bodwin. This app allows you to explore data related to Pokémon. This app will allow you to explore the popularity of Pokémon in all 50 US states and all high income English speaking countries. Additionally this app allows you to explore how good different Pokémon base stats are at predicing the evolutionary stage of all 898 Pokémon plus their regional variants! With this app, you can Explore Em' All!"), style = "text-align: center;"),
+                          div(
+                            p("The data in this app come from two sources: A Google spreadsheet that was created as a part of an online Pokémon data analysis challenge and Google trends.",
+                              p("Click ", 
+                                a(href = 'https://docs.google.com/spreadsheets/d/1kb5IkxQlJoWKGPVxmHb_D7POaAKFXUl8/edit#gid=1425790249', 'Here'), "for the link to the google spreadsheet.")),
+                            p("The names of the tabs were inspired by SEMIONKORCHEVSKIY's name for their kaggle dataset. You can find it ", a(href = 'https://www.kaggle.com/datasets/semioniy/predictemall', 'Here'),".")), style = "text-align: center;"),
                  
-  tabPanel("Map Em' All",
-           sidebarLayout(
-             sidebarPanel(h4("Pokémon Popularity Map"), 
-                          p("This map shows the popularity score of Pokémon in each US State over the past day along with comparing the popularity between Ash Ketchum and Pikachu, the two main characters of the Pokémon TV show. Popularity Score is determined by how many Google searches a certain keyword. The scale ranges from 0 to 100 with 0 indicating no popularity and 100 indicating high popularity"),
-                          p('To see the popularity score of Pokémon in a particular state, hover over that state.'), 
-                          p("Hover over the pokéball to see which character was more popular today. Click on the pokéball to see each character's respective popularity score.")),
-           mainPanel(leafletOutput("map"),
-                     textOutput("map_directions")))),
-  
-  tabPanel("Vizualize Em' All",
-           sidebarLayout(
-             sidebarPanel(
-               sliderInput("date",
-                           "Pokémon Popularity Score Per Day By Country:",
-                           min = ymd("2022-01-01"),
-                           max = ymd("2022-06-01"),
-                           value = ymd("2022-01-28")),
-               selectInput(inputId = "Country1", label = "Select a Country", choices = c("Canada", "New Zealand", "United States", "United Kingdom", "Australia", "Ireland")),
-               selectInput(inputId = "Country2", label = "Select a Country", choices = c("New Zealand", "United States", "United Kingdom", "Australia", "Ireland", 'Canada'))),
-             mainPanel(plotOutput("plot"),
-                       textOutput("description")))), 
-  tabPanel("Group Em' All",
-    sidebarLayout(
-    sidebarPanel(
-    selectInput('X', 'X Variable', c('HP', 'Attack', 'Defense', 'SpecialAttack', 'SpecialDefense', 'Speed', 'Total')),
-    selectInput('Y', 'Y Variable', c('Total', 'Attack', 'Defense', 'SpecialAttack', 'SpecialDefense', 'Speed', 'HP'))),
-  mainPanel(
-    plotlyOutput('plot2'), 
-    textOutput("description2")))))
+                 tabPanel("Map Em' All",
+                          sidebarLayout(
+                            sidebarPanel(h4("Pokémon Popularity Map"), 
+                                         p("This map shows the popularity score of Pokémon in each US State over the past day along with comparing the popularity between Ash Ketchum and Pikachu, the two main characters of the Pokémon TV show. Popularity Score is determined by how many Google searches a certain keyword. The scale ranges from 0 to 100 with 0 indicating no popularity and 100 indicating high popularity"),
+                                         p('To see the popularity score of Pokémon in a particular state, hover over that state.'), 
+                                         p("Hover over the pokéball to see which character was more popular today. Click on the pokéball to see each character's respective popularity score.")),
+                            mainPanel(leafletOutput("map"),
+                                      textOutput("map_directions")))),
+                 
+                 tabPanel("Vizualize Em' All",
+                          sidebarLayout(
+                            sidebarPanel(
+                              sliderInput("date",
+                                          "Pokémon Popularity Score Per Day By Country:",
+                                          min = ymd("2022-01-01"),
+                                          max = ymd("2022-06-01"),
+                                          value = ymd("2022-01-28")),
+                              selectInput(inputId = "Country1", label = "Select a Country", choices = c("Canada", "New Zealand", "United States", "United Kingdom", "Australia", "Ireland")),
+                              selectInput(inputId = "Country2", label = "Select a Country", choices = c("New Zealand", "United States", "United Kingdom", "Australia", "Ireland", 'Canada'))),
+                            mainPanel(plotOutput("plot"),
+                                      textOutput("description")))), 
+                 tabPanel("Group Em' All",
+                          sidebarLayout(
+                            sidebarPanel(
+                              selectInput('X', 'X Variable', c('HP', 'Attack', 'Defense', 'SpecialAttack', 'SpecialDefense', 'Speed', 'Total')),
+                              selectInput('Y', 'Y Variable', c('Total', 'Attack', 'Defense', 'SpecialAttack', 'SpecialDefense', 'Speed', 'HP'))),
+                            mainPanel(
+                              plotlyOutput('plot2'), 
+                              textOutput("description2")))))
 
 
 
@@ -175,8 +175,8 @@ server <- function(input, output) {
                  popup = lapply(popups, htmltools::HTML)) %>% 
       addPolygons(
         label=~stringr::str_c('Popularity Score',
-          name, ': ',
-          formatC(states@data[["Pokemon"]], big.mark = ',', format='d')),
+                              name, ': ',
+                              formatC(states@data[["Pokemon"]], big.mark = ',', format='d')),
         labelOptions= labelOptions(direction = 'auto'),
         weight=1, color='#333333', opacity=1,
         fillColor = ~pal(states@data[["Pokemon"]]), fillOpacity = 1,
@@ -197,7 +197,7 @@ server <- function(input, output) {
   })
   
   output$plot <- renderPlot({
-
+    
     pokemon_data %>% 
       mutate(interest_over_time.date = ymd(interest_over_time.date)) %>% 
       filter(interest_over_time.geo %in% c(input$Country1, input$Country2)) %>% 
@@ -211,31 +211,31 @@ server <- function(input, output) {
       scale_fill_manual(values = c("#FAD61C", '#000000'))
     
   })
-
+  
   # I based the kmeans portion of the shiny app off of what this person did: https://github.com/duf59/shiny-kmeans
   output$description2 <- renderText({
-    "This plot allows you to test how good different Pokémon base stats are at predicting each Pokémon's evolutionary stage. The three groups are fully evolved Pokémon, Pokémon that are not fully evolved, and legendary Pokémon. I put legendary Pokémon in a different group because they tend to be much stronger than regular Pokémon. Use the dropdown menus to choose base stats. To toggle the visibility of points, click on the different groups in the legend; points (and the toggling options) are separated up by evolutionary stage and assigned cluster."
+    "This plot allows you to test how good different Pokémon base stats are at predicting each Pokémon's evolutionary stage. The three groups are fully evolved Pokémon, Pokémon that are not fully evolved, and legendary Pokémon. I put legendary Pokémon in a different group because they tend to be much stronger than regular Pokémon. Use the dropdown menus to choose base stats. To toggle the visibility of points, click on the different groups in the legend; points (and the toggling options) are separated up by evolutionary stage and assigned cluster. The date is preset to January 28, 2022 because that was the day that the game Pokémon Legends: Arceus was released"
   })
   compute <- reactive({
     
-  data <- subset(pokemon, select=c(input$X,input$Y))
-  
+    data <- subset(pokemon, select=c(input$X,input$Y))
+    
     Kclust <- kmeans(data , 3)
     list(kmean.result = data.frame(pokemon, cluster=as.factor(Kclust$cluster)))
-    })
+  })
   
   output$plot2 <- renderPlotly({
     data=compute()
-     plot = ggplot(data=data$kmean.result, aes_string(x = input$X, y = input$Y, label = 'Name')) +
+    plot = ggplot(data=data$kmean.result, aes_string(x = input$X, y = input$Y, label = 'Name')) +
       geom_jitter(size=1, aes_string(shape = "PokemonEvolution", color = 'cluster')) +
-       scale_color_manual(values = c("#FF0000", '#222224', "#91AEB6"))+
+      scale_color_manual(values = c("#FF0000", '#222224', "#91AEB6"))+
       ggtitle("Pokémon Clusters via K Means") +
-       labs(xlab = paste(input$X), ylab = paste(input$Y)) +
-       theme_classic() +
-       guides(color = "none")+
-       theme(text=element_text(size=15, family="Trebuchet MS"))
-  
-     ggplotly(plot, tooltip = c("label", 'shape')) #ggplotly stuff was based off of this: https://stackoverflow.com/questions/49454652/add-custom-data-label-in-ggplotly-scatterplot
+      labs(xlab = paste(input$X), ylab = paste(input$Y)) +
+      theme_classic() +
+      guides(color = "none")+
+      theme(text=element_text(size=15, family="Trebuchet MS"))
+    
+    ggplotly(plot, tooltip = c("label", 'shape')) #ggplotly stuff was based off of this: https://stackoverflow.com/questions/49454652/add-custom-data-label-in-ggplotly-scatterplot
   })
 }    
 
