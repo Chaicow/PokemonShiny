@@ -233,7 +233,7 @@ server <- function(input, output) {
        guides(color = "none")+
        theme(text=element_text(size=15, family="Trebuchet MS"))
   
-     ggplotly(plot, tooltip = c("label", 'shape'))
+     ggplotly(plot, tooltip = c("label", 'shape')) #ggplotly stuff was based off of this: https://stackoverflow.com/questions/49454652/add-custom-data-label-in-ggplotly-scatterplot
   })
 }    
 
