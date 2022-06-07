@@ -193,7 +193,7 @@ server <- function(input, output) {
     
   })
   output$description <- renderText({
-    'This plot allows you to compare the popularity of Pokémon in high income countries whose primary language is English for any day since the beginning of this year (2022). Choose countries by using the dropdown menus and choose a date by using the slider' 
+    'This plot allows you to compare the popularity of Pokémon in high income countries whose primary language is English for any day since the beginning of this year (2022). Choose countries by using the dropdown menus and choose a date by using the slider. The date is preset to January 28, 2022 because that was the day that the game Pokémon Legends: Arceus was released' 
   })
   
   output$plot <- renderPlot({
@@ -214,7 +214,7 @@ server <- function(input, output) {
   
   # I based the kmeans portion of the shiny app off of what this person did: https://github.com/duf59/shiny-kmeans
   output$description2 <- renderText({
-    "This plot allows you to test how good different Pokémon base stats are at predicting each Pokémon's evolutionary stage. The three groups are fully evolved Pokémon, Pokémon that are not fully evolved, and legendary Pokémon. I put legendary Pokémon in a different group because they tend to be much stronger than regular Pokémon. Use the dropdown menus to choose base stats. To toggle the visibility of points, click on the different groups in the legend; points (and the toggling options) are separated up by evolutionary stage and assigned cluster. The date is preset to January 28, 2022 because that was the day that the game Pokémon Legends: Arceus was released"
+    "This plot allows you to test how good different Pokémon base stats are at predicting each Pokémon's evolutionary stage. The three groups are fully evolved Pokémon, Pokémon that are not fully evolved, and legendary Pokémon. I put legendary Pokémon in a different group because they tend to be much stronger than regular Pokémon. Use the dropdown menus to choose base stats. To toggle the visibility of points, click on the different groups in the legend; points (and the toggling options) are separated up by evolutionary stage and assigned cluster."
   })
   compute <- reactive({
     
