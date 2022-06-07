@@ -165,7 +165,7 @@ server <- function(input, output) {
     pal <- colorBin("YlOrRd", domain = states@data[["Pokemon"]],
                     bins = bins)
     
-    #Some of the leaflet code came from here: https://slcladal.github.io/maps.html
+    #Some of the choropleth code came from here: https://slcladal.github.io/gviz.html
     
     leafmap <- leaflet(data = states) %>% 
       addTiles() %>% 
