@@ -193,7 +193,7 @@ server <- function(input, output) {
     
   })
   output$description <- renderText({
-    'This plot allows you to compare the popularity of Pokémon in high income countries whose primary language is English for any day since the beginning of this year (2022). Choose countries by using the dropdown menus and choose a date by using the slider. The date is preset to January 28, 2022 because that was the day that the game Pokémon Legends: Arceus was released' 
+    'This plot allows you to compare the popularity of Pokémon in high income countries whose primary language is English for any day since the beginning of this year (2022). Choose countries by using the dropdown menus and choose a date by using the slider. The date is preset to January 28, 2022 because that was the day that the game Pokémon Legends: Arceus was released.' 
   })
   
   output$plot <- renderPlot({
