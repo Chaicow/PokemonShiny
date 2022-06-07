@@ -2,4 +2,5 @@
 
 Welcome to the Github repository for my Pokémon shiny app!
 
-Click here to view the application.
+
+To View the Shiny App, Click [Here](https://nfhqok-chaicow.shinyapps.io/431-shiny/)
